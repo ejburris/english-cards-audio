@@ -247,5 +247,5 @@
   done.addEventListener("click", () => { mine.done = true; save(); paintDone(); paintStreak(); });
   paintDone();
   app.append(done);
-  app.append(h("p", { class: "foot" }, "English Practice Cards · Costa Rica"));
+  app.append(h("p", { class: "foot" }, "English Practice Cards"));
 })();
