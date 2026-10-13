@@ -1,16 +1,128 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#1c3d72"><title>English Practice Cards</title>
-<link rel="manifest" href="app/manifest.json"><link rel="icon" href="app/icon-192.png"><link rel="apple-touch-icon" href="app/icon-192.png">
-<link rel="stylesheet" href="app/app.css?v=202610122015">
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1c3d72">
+<title>English Practice Cards · Inglés en 10 minutos al día</title>
+<meta name="description" content="Una tarjeta nueva de inglés cada mañana por WhatsApp, con audio para escuchar, repetir y practicar. Para niños, jóvenes y adultos principiantes.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="English Practice Cards · Inglés en 10 minutos al día">
+<meta property="og:description" content="Una tarjeta nueva cada mañana por WhatsApp, con audio para escuchar, repetir y practicar.">
+<meta property="og:image" content="https://ejburris.github.io/english-cards-audio/d/1/preview.jpg">
+<meta property="og:url" content="https://ejburris.github.io/english-cards-audio/">
+<link rel="manifest" href="app/manifest.json">
+<link rel="icon" href="app/icon-192.png">
+<link rel="apple-touch-icon" href="app/icon-192.png">
+<link rel="stylesheet" href="app/app.css?v=202610130646">
 <style>
-.row{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--navy);border-radius:14px;padding:12px 14px;margin-bottom:10px;text-decoration:none;color:var(--ink)}
-.row .n{background:var(--yellow);color:var(--navy);font-family:"Patrick Hand",cursive;font-size:20px;padding:2px 10px;border-radius:8px;white-space:nowrap}
-.row .ti{flex:1;font-weight:700;font-size:18px;min-width:0} .row .go{color:var(--navy)}
-</style></head>
-<body><main class="wrap">
-<header class="top"><div class="t"><div class="kicker">ENGLISH PRACTICE</div><h1>Lecciones</h1></div></header>
-<p class="hint" style="margin-bottom:14px">Escoge un día para escuchar y practicar. · Pick a day to listen and practice.</p>
-<a class="row" href="d/1/"><span class="n">DÍA 1</span><span class="ti">Hello!</span><span class="go">▶</span></a>
-<p class="foot">English Practice Cards</p>
-</main></body></html>
+  .hero-l { background: var(--navy); color: #fff; border-radius: 20px; padding: 26px 20px 22px; margin-bottom: 22px; }
+  .hero-l .kicker { font-family: "Patrick Hand", cursive; letter-spacing: 1.5px; opacity: .85; font-size: 17px; }
+  .hero-l h1 { font-family: "Patrick Hand", cursive; font-weight: 400; font-size: 40px; line-height: 1.02; margin: 6px 0 10px; }
+  .hero-l h1 span { color: var(--yellow); }
+  .hero-l p { font-size: 18px; opacity: .95; }
+  .cta { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px;
+         border-radius: 16px; background: var(--yellow); color: var(--navy); font-weight: 700; font-size: 19px;
+         text-decoration: none; box-shadow: 0 3px 0 #d9a900; margin-top: 18px; }
+  .cta.ghost { background: transparent; color: #fff; box-shadow: none; border: 2px solid rgba(255,255,255,.6); margin-top: 10px; min-height: 48px; font-size: 17px; }
+  h2.sec { font-family: "Patrick Hand", cursive; font-weight: 400; font-size: 30px; color: var(--navy); margin: 6px 0 12px; }
+  .steps { display: grid; gap: 12px; margin-bottom: 26px; }
+  .step { display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 3px solid var(--navy); border-radius: 16px; padding: 14px; }
+  .step .num { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: var(--yellow); color: var(--navy);
+               font-family: "Patrick Hand", cursive; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  .step h3 { font-size: 19px; color: var(--navy); line-height: 1.25; }
+  .step p { font-size: 16px; color: var(--muted); margin-top: 2px; }
+  .cardshot { display: block; width: 100%; border-radius: 14px; border: 3px solid var(--navy); margin-bottom: 12px; }
+  .legend { list-style: none; display: grid; gap: 8px; margin-bottom: 26px; }
+  .legend li { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; background: #fff; border-radius: 12px; padding: 10px 12px; border: 2px solid #e3e8f1; }
+  .legend .tag { flex: 0 0 auto; font-family: "Patrick Hand", cursive; font-size: 17px; color: #fff; padding: 2px 9px; border-radius: 8px; white-space: nowrap; }
+  .t-navy { background: var(--navy); } .t-red { background: var(--red); } .t-green { background: var(--green); } .t-yellow { background: var(--yellow); color: var(--navy) !important; }
+  .feat { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 26px; }
+  .feat div { background: #fff; border: 2px solid var(--green); border-radius: 14px; padding: 12px; font-size: 15px; }
+  .feat b { display: block; font-size: 17px; color: var(--ink); margin-top: 4px; }
+  .feat .e { font-size: 28px; line-height: 1; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+  .chips span { background: var(--navy-soft); color: var(--navy); border-radius: 999px; padding: 6px 12px; font-size: 15px; font-weight: 700; }
+  .who { background: var(--green-soft); border: 3px solid var(--green); border-radius: 16px; padding: 14px 16px; margin-bottom: 26px; font-size: 17px; }
+  .who li { margin-left: 20px; margin-top: 4px; }
+  .end { background: var(--yellow-soft); border: 3px solid var(--yellow); border-radius: 18px; padding: 20px 18px; text-align: center; margin-bottom: 10px; }
+  .end h2 { font-family: "Patrick Hand", cursive; font-weight: 400; font-size: 30px; color: var(--navy); line-height: 1.05; }
+  .end p { margin-top: 6px; color: var(--muted); }
+  .end .cta { box-shadow: 0 3px 0 #d9a900; }
+  .links { text-align: center; margin-top: 12px; font-size: 15px; }
+  .links a { color: var(--navy); font-weight: 700; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero-l">
+    <div class="kicker">ENGLISH PRACTICE CARDS</div>
+    <h1>Inglés en <span>10 minutos</span> al día</h1>
+    <p>Cada mañana recibes una tarjeta nueva por WhatsApp. Con un toque escuchas una voz en inglés, repites y practicas. Con ayuda en español.</p>
+    <a class="cta" href="d/1/">▶ Prueba el Día 1 gratis</a>
+    <a class="cta ghost" href="#como">¿Cómo funciona?</a>
+  </header>
+
+  <h2 class="sec" id="como">¿Cómo funciona?</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div>
+      <h3>📲 Cada mañana te llega tu tarjeta</h3>
+      <p>Una lección corta por WhatsApp, con un enlace a la práctica del día.</p></div></div>
+    <div class="step"><div class="num">2</div><div>
+      <h3>👂 Tocas y escuchas</h3>
+      <p>Toca cualquier frase o palabra para oírla. Usa 🐢 para escucharla despacio.</p></div></div>
+    <div class="step"><div class="num">3</div><div>
+      <h3>🎤 Repites y te grabas</h3>
+      <p>Graba tu voz y compárala con la voz en inglés. Así mejora tu pronunciación.</p></div></div>
+    <div class="step"><div class="num">4</div><div>
+      <h3>✅ Respondes y avanzas</h3>
+      <p>Preguntas con respuesta inmediata, y tus respuestas de "Tu turno" llegan a tu profesor.</p></div></div>
+  </div>
+
+  <h2 class="sec">Así es una tarjeta</h2>
+  <img class="cardshot" src="assets/card-demo.jpg" alt="Ejemplo de tarjeta: Día 1, Hello!" width="900" height="900" loading="lazy">
+  <ul class="legend">
+    <li><span class="tag t-navy">READ</span><span>4 frases cortas en inglés. Las palabras nuevas van en azul.</span></li>
+    <li><span class="tag t-red">ANSWER</span><span>3 preguntas para ver si entendiste la lectura.</span></li>
+    <li><span class="tag t-green">ESPAÑOL</span><span>La traducción de cada frase y las 5 palabras del día.</span></li>
+    <li><span class="tag t-navy">TU TURNO</span><span>3 preguntas sobre tu vida, para hablar y escribir en inglés.</span></li>
+    <li><span class="tag t-yellow">🔊 QR</span><span>Escanéalo y escucha la lección completa.</span></li>
+  </ul>
+
+  <h2 class="sec">Lo que incluye</h2>
+  <div class="feat">
+    <div><span class="e">🗓️</span><b>Una lección diaria</b>Corta y sin estrés.</div>
+    <div><span class="e">🔊</span><b>Audio en inglés</b>Normal y despacio.</div>
+    <div><span class="e">🎤</span><b>Grábate</b>Compara tu voz.</div>
+    <div><span class="e">✅</span><b>Respuestas al instante</b>Sabes si acertaste.</div>
+    <div><span class="e">🤝</span><b>Ayuda en español</b>Nunca te pierdes.</div>
+    <div><span class="e">🔁</span><b>Repaso semanal</b>Cada 7 días.</div>
+  </div>
+
+  <h2 class="sec">Para quién es</h2>
+  <div class="who">
+    <ul>
+      <li>Niños, jóvenes y adultos que empiezan con el inglés.</li>
+      <li>Familias que quieren practicar juntas, 10 minutos al día.</li>
+      <li>Contenido sano y apto para toda la familia.</li>
+    </ul>
+  </div>
+
+  <h2 class="sec">16 semanas de temas</h2>
+  <div class="chips">
+    <span>Saludos</span><span>Familia</span><span>Números</span><span>Colores</span><span>Comida</span><span>El clima</span>
+    <span>La casa</span><span>La escuela</span><span>El cuerpo</span><span>La ropa</span><span>Mi rutina</span><span>De compras</span>
+    <span>Sentimientos</span><span>Direcciones</span><span>Trabajos</span><span>Viajes</span>
+  </div>
+
+  <div class="end">
+    <h2>Pruébalo ahora, es gratis</h2>
+    <p>Abre el Día 1 y practica en tu teléfono. No necesitas instalar nada.</p>
+    <a class="cta" href="d/1/">▶ Abrir el Día 1</a>
+  </div>
+  <p class="links"><a href="lecciones/">Ya soy estudiante → mis lecciones</a></p>
+  <p class="foot">English Practice Cards</p>
+</main>
+</body>
+</html>
