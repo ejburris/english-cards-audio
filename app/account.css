@@ -1,0 +1,38 @@
+/* Signup, sign-in and account screens. Loads after app.css. */
+a { color: var(--navy); }
+.center { text-align: center; }
+.panel { background: #fff; border: 3px solid var(--navy-soft); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; }
+.panel p + p { margin-top: 8px; }
+.form { display: grid; gap: 10px; }
+.sec2 { font-family: "Patrick Hand", cursive; font-weight: 400; font-size: 24px; color: var(--navy); margin-top: 6px; }
+.field { width: 100%; font: inherit; font-size: 18px; padding: 12px 14px; border: 2px solid #c9d2e3; border-radius: 12px; background: #fff; margin-bottom: 6px; }
+.field:focus { outline: none; border-color: var(--navy); }
+.cta { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 56px; border-radius: 16px;
+       background: var(--yellow); color: var(--navy); font-weight: 700; font-size: 19px; text-decoration: none;
+       box-shadow: 0 3px 0 #d9a900; margin: 6px 0 16px; border: 0; cursor: pointer; }
+.btn2 { min-height: 46px; padding: 8px 16px; border-radius: 12px; background: var(--navy); color: #fff; font-weight: 700; margin-top: 6px; }
+.mini-btn { padding: 6px 12px; border-radius: 999px; background: var(--red-soft); color: var(--red); font-weight: 700; font-size: 14px; }
+.link-btn { color: var(--muted); text-decoration: underline; font-size: 15px; }
+.plans { display: grid; gap: 10px; }
+.plan { display: flex; gap: 12px; align-items: flex-start; background: #fff; border: 3px solid #d9e0ec; border-radius: 16px; padding: 14px; cursor: pointer; }
+.plan:has(input:checked) { border-color: var(--navy); background: var(--navy-soft); }
+.plan input { width: 22px; height: 22px; margin-top: 3px; accent-color: var(--navy); flex: 0 0 auto; }
+.pbody { display: grid; gap: 2px; }
+.pname { font-weight: 700; font-size: 18px; }
+.pprice { font-family: "Patrick Hand", cursive; font-size: 26px; color: var(--navy); line-height: 1.1; }
+.pdetail { font-size: 15px; color: var(--muted); }
+.best { background: var(--yellow); color: var(--navy); font-size: 12px; border-radius: 999px; padding: 2px 8px; margin-left: 6px; vertical-align: 2px; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; margin: 4px 0; }
+.check input { width: 22px; height: 22px; margin-top: 2px; flex: 0 0 auto; accent-color: var(--navy); }
+.trial { background: var(--green-soft); border: 3px solid var(--green); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 16px; font-size: 16px; }
+.err, .warn { background: var(--red-soft); color: var(--red); border-radius: 12px; padding: 10px 12px; font-weight: 700; margin-bottom: 12px; }
+.ok { background: var(--green-soft); color: var(--green); border-radius: 12px; padding: 10px 12px; font-weight: 700; margin-bottom: 12px; }
+.dev { margin-top: 12px; background: var(--yellow-soft); padding: 10px; border-radius: 10px; font-size: 14px; }
+.devices { list-style: none; display: grid; gap: 8px; }
+.devices li { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-top: 1px dashed #d3d9e4; padding-top: 8px; }
+.devices small { display: block; color: var(--muted); font-size: 13px; }
+.row { display: flex; align-items: center; gap: 12px; background: #fff; border: 3px solid var(--navy); border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; text-decoration: none; color: var(--ink); }
+.row .n { background: var(--yellow); color: var(--navy); font-family: "Patrick Hand", cursive; font-size: 20px; padding: 2px 10px; border-radius: 8px; white-space: nowrap; }
+.row .ti { flex: 1; font-weight: 700; font-size: 18px; min-width: 0; }
+.row .go { color: var(--navy); }
+.legal ul { margin: 6px 0 10px 20px; } .legal li { margin-top: 4px; } .legal p { font-size: 16px; }

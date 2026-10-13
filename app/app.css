@@ -153,3 +153,12 @@ textarea:focus { outline: none; border-style: solid; border-color: var(--navy); 
 :focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
 [hidden] { display: none !important; }
 .ctrls .btn { padding: 6px 12px; font-size: 15px; }
+
+/* paid app: demo banner + learner picker */
+.demo { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; justify-content: space-between;
+        background: var(--green-soft); border: 2px solid var(--green); border-radius: 14px; padding: 10px 14px; margin-bottom: 12px; font-size: 15px; }
+.demo a { color: var(--green); font-weight: 700; }
+.who { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; font-size: 15px; color: var(--muted); }
+.chip { border: 2px solid var(--navy); border-radius: 999px; padding: 6px 14px; font-weight: 700; color: var(--navy); background: #fff; min-height: 40px; }
+.chip.on { background: var(--navy); color: #fff; }
+.foot a { color: var(--muted); }

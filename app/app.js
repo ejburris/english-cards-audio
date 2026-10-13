@@ -23,10 +23,16 @@
     get() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } },
     set(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { /* private mode */ } },
   };
-  const state = store.get();
+  // Family accounts: progress is kept per learner on this phone.
+  const LEARNERS = Array.isArray(window.LEARNERS) ? window.LEARNERS.filter(Boolean) : [];
+  let who = "";
+  try { who = localStorage.getItem(KEY + "-who") || ""; } catch (e) { /* private mode */ }
+  if (!LEARNERS.includes(who)) who = LEARNERS[0] || "";
+  const root = store.get();
+  const state = who ? (root.byLearner = root.byLearner || {}, root.byLearner[who] = root.byLearner[who] || {}) : root;
   state.days = state.days || {};
   const mine = state.days[L.day] = state.days[L.day] || {};
-  const save = () => store.set(state);
+  const save = () => store.set(root);
 
   // ---------- audio: one player, the pressed button shows "playing" ----------
   const player = new Audio();
@@ -91,6 +97,23 @@
     h("div", { class: "t" }, h("div", { class: "kicker" }, "ENGLISH PRACTICE"), h("h1", {}, L.title), streakEl),
     h("div", { class: "badge" }, "DÍA " + L.day)));
 
+  if (window.DEMO) {
+    app.append(h("div", { class: "demo" },
+      h("span", {}, "👋 Esta es una lección de muestra gratis."),
+      h("a", { href: "/empezar" }, "Prueba 7 días gratis →")));
+  }
+  if (LEARNERS.length > 1) {
+    const pick = h("div", { class: "who" }, h("span", {}, "¿Quién practica hoy?"));
+    LEARNERS.forEach(n => {
+      const b = h("button", { class: "chip" + (n === who ? " on" : "") }, n);
+      b.addEventListener("click", () => {
+        try { localStorage.setItem(KEY + "-who", n); } catch (e) { /* private mode */ }
+        location.reload();
+      });
+      pick.append(b);
+    });
+    app.append(pick);
+  }
   app.append(h("div", { class: "hero", "aria-hidden": "true" }, (L.hero_emoji || []).map(e => h("span", {}, e))));
 
   const allBtn = h("button", { class: "playall" },
@@ -227,7 +250,7 @@
   });
   const send = h("button", { class: "send" }, "📲 Enviar mis respuestas por WhatsApp");
   send.addEventListener("click", () => {
-    const lines = [`📘 Día ${L.day} – ${L.title} – Tu turno`];
+    const lines = [`📘 Día ${L.day} – ${L.title} – Tu turno` + (who ? ` – ${who}` : "")];
     L.your_turn.forEach((t, i) => lines.push(`${i + 1}. ${t}`, `➡️ ${areas[i].value.trim() || "…"}`));
     const text = encodeURIComponent(lines.join("\n"));
     const num = (window.TEACHER_WHATSAPP || "").replace(/\D/g, "");
@@ -247,5 +270,6 @@
   done.addEventListener("click", () => { mine.done = true; save(); paintDone(); paintStreak(); });
   paintDone();
   app.append(done);
-  app.append(h("p", { class: "foot" }, "English Practice Cards"));
+  app.append(h("p", { class: "foot" }, "English Practice Cards",
+    window.DEMO === false || LEARNERS.length ? [" · ", h("a", { href: "/lecciones/" }, "Mis lecciones")] : null));
 })();
